@@ -9,13 +9,15 @@ jobs:
       MONGODB_DB_NAME: ${{ vars.MONGODB_DB_NAME }}
       PORT: 8080
     runs-on: ubuntu-latest
+    container:
+      image: node
     steps:
       - name: get code
         uses: actions/checkout@v3
-      - name: Install NodeJs
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
+      # - name: Install NodeJs
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: 18
       - name: Cache dependencies
         uses: actions/cache@v4
         with:
