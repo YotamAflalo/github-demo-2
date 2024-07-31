@@ -20,8 +20,8 @@ jobs:
             key: ${{ runner.os }}-buildx-${{ github.sha }}
             restore-keys:
               ${{ runner.os }}-buildx-
-        - name: docker build
-          run: ddocker build --cache-from=type=local,src=/tmp/.buildx-cache --cache-to=type=local,dest=/tmp/.buildx-cache -t yotam433/git_actions:${{ github.sha }} .
+        - name: docker build 
+          run: docker build --cache-from=type=local,src=/tmp/.buildx-cache --cache-to=type=local,dest=/tmp/.buildx-cache -t yotam433/git_actions:${{ github.sha }} .
         - name: docker login
           run: docker login -u ${{ env.docker_user }} -p ${{ env.docker_pass }}
         - name: docker push 
