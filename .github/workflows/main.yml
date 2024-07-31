@@ -6,6 +6,7 @@ jobs:
       MONGODB_CLUSTER_ADDRESS: ${{ vars.MONGODB_CLUSTER_ADDRESS }}
       MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
       MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
+      MONGODB_DB_NAME: ${{ vars.MONGODB_DB_NAME }}
       PORT: 8080
     runs-on: ubuntu-latest
     steps:
@@ -34,11 +35,12 @@ jobs:
       MONGODB_CLUSTER_ADDRESS: ${{ vars.MONGODB_CLUSTER_ADDRESS }}
       MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
       MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
+      MONGODB_DB_NAME: ${{ vars.MONGODB_DB_NAME }}
     needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Output Information
         run: |
           echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}"
-          echo "MONGODB_DB_NAME: $MONGODB_DB_NAME"  
+          echo "MONGODB_DB_NAME: ${{ env.MONGODB_DB_NAME }}"  
         
