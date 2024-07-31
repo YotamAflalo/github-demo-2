@@ -21,8 +21,8 @@ jobs:
             restore-keys:
               ${{ runner.os }}-buildx-
         - name: docker build
-          run: docker build -t lidorlg/js-app:${{ github.sha }} .
+          run: docker build -t yotam433/git_actions:${{ github.sha }} .
         - name: docker login
           run: docker login -u ${{ env.docker_user }} -p ${{ env.docker_pass }}
         - name: docker push 
-          run: docker push lidorlg/js-app:${{ github.sha }}
+          run: docker push yotam433/git_actions:${{ github.sha }}
